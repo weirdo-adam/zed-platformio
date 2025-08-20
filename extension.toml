@@ -1,0 +1,13 @@
+id = "platformio"
+name = "PlatformIO"
+schema_version = 1
+version = "0.1.0"
+authors = ["pengfei.li <l_pengf@163.com>"]
+description = "PlatformIO configuration file syntax highlighting"
+repository = "https://github.com/weirdo-adam/zed-platformio.git"
+
+[grammars.ini]
+repository = "https://github.com/justinmk/tree-sitter-ini"
+commit = "fc37e95b8d9651c60d81cccbcbbc55867dbb0afd"
+
+
