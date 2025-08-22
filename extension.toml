@@ -1,7 +1,7 @@
 id = "zed-platformio"
 name = "Zed-PlatformIO"
 schema_version = 1
-version = "0.1.0"
+version = "v0.0.1"
 authors = ["weirdo-adam <adam.ngc2237@gmail.com>"]
 description = "PlatformIO syntax highlighting for platformio.ini configuration files"
 repository = "https://github.com/weirdo-adam/zed-platformio.git"
