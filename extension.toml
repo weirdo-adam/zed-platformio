@@ -1,5 +1,5 @@
-id = "platformio"
-name = "PlatformIO"
+id = "zed-platformio"
+name = "Zed-PlatformIO"
 schema_version = 1
 version = "0.1.0"
 authors = ["pengfei.li <l_pengf@163.com>"]
