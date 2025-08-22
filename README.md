@@ -15,16 +15,71 @@ Syntax highlighting for PlatformIO configuration files in Zed.
 [platformio]
 default_envs = nodemcuv2
 
+; custom common options
 [common]
-build_flags = -D VERSION=1.2.3
-lib_deps = bblanchon/ArduinoJson @ ~5.6
+build_flags =
+    -D VERSION=1.2.3
+    -D DEBUG=1
+lib_deps_builtin =
+    SPI
+    Wire
+lib_deps_external =
+    bblanchon/ArduinoJson @ ~5.6,!=5.4
+    https://github.com/gioblu/PJON.git#v2.0
+    IRremoteESP8266=https://github.com/markszabo/IRremoteESP8266/archive/master.zip
 
 [env:nodemcuv2]
 platform = espressif8266
 framework = arduino
 board = nodemcuv2
-build_flags = ${common.build_flags}
-lib_deps = ${common.lib_deps}
+
+; Build options
+build_flags =
+    ${common.build_flags}
+    -DSSID_NAME=HELLO
+    -DSSID_PASWORD=WORLD
+
+; Library options
+lib_deps =
+    ${common.lib_deps_builtin}
+    ${common.lib_deps_external}
+    https://github.com/me-no-dev/ESPAsyncTCP.git
+    knolleary/PubSubClient@^2.8
+    paulstoffregen/OneWire
+
+; Serial Monitor options
+monitor_speed = 115200
+monitor_flags =
+    --encoding
+    hexlify
+
+; Unit Testing options
+test_ignore = test_desktop
+
+[env:bluepill_f103c8]
+platform = ststm32
+framework = arduino
+board = bluepill_f103c8
+
+; Library options
+lib_deps = ${common.lib_deps_external}
+
+; Debug options
+debug_tool = custom
+debug_server =
+    ${platformio.packages_dir}/tool-jlink/JLinkGDBServer
+    -singlerun
+    -if
+    SWD
+    -select
+    USB
+    -port
+    2331
+    -device
+    STM32F103C8
+
+; Unit Testing options
+test_ignore = test_desktop
 ```
 
 ## License
